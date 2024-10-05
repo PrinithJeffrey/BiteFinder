@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ recipe[1] }}</title>  <!-- Assuming title is the second column -->
+</head>
+<body>
+    <h1>{{ recipe[1] }}</h1>  <!-- Display recipe title -->
+    <p>{{ recipe[2] }}</p>  <!-- Display recipe description -->
+
+    <h2>Reviews</h2>
+    <form action="{{ url_for('review', recipe_id=recipe[0]) }}" method="POST">
+        <textarea name="review_text" required></textarea>
+        <button type="submit">Submit Review</button>
+    </form>
+
+    <ul>
+        {% for review in reviews %}
+        <li>{{ review[3] }} - {{ review[4] }}</li>  <!-- Assuming review text and created_at are in these positions -->
+        {% endfor %}
+    </ul>
+
+    <h2>Recommended Recipes</h2>
+    <ul>
+        {% for recommendation in recommendations.values %}
+        <li><a href="{{ url_for('recipe_details', recipe_id=recommendation[0]) }}">{{ recommendation[1] }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results</h1>
+    <a href="/">Back to Home</a>
+    <ul>
+        {% for recipe in recipes %}
+        <li>{{ recipe[1] }}</li>  <!-- Assuming title is the second column -->
+        {% endfor %}
+    </ul>
+</body>
+</html>
