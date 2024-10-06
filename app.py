@@ -7,6 +7,7 @@ from wtforms.validators import DataRequired, Length, EqualTo
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+from pymongo import MongoClient
 
 app = Flask(__name__)
 app.secret_key = 'bbda529b87c96c1bb10db7939f86c953293092057b97f9e7'
@@ -179,6 +180,10 @@ def get_recommendations(recipe_id):
 
     # Return the top 5 most similar recipes
     return merged_df.iloc[recipe_indices][['id', 'title']]
+
+client = MongoClient("mongodb://localhost:27017/")  # Replace with your MongoDB URI
+db = client['recipe_database']  # Create or connect to the recipe database
+reviews_collection = db['reviews']  # Create or connect to the reviews collection
 
 # Run the app
 if __name__ == '__main__':

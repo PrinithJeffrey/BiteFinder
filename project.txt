@@ -1,0 +1,8 @@
+username:root
+password:Prinith_132004
+server:127.0.0.1
+database:recipe_finder
+
+secret key-'bbda529b87c96c1bb10db7939f86c953293092057b97f9e7'
+command to start app: python app.py
+
