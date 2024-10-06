@@ -106,7 +106,6 @@ pyttsx3==2.90
 pytweening==1.2.0
 pytz==2024.1
 pywhatkit==5.4
-pywin32==306
 pyzmq==25.0.2
 referencing==0.34.0
 requests==2.31.0
